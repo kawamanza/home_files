@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mate $(ls -1 | egrep -v "(log|git|tmp|doc|coverage|*.patch)" | egrep -v .DS_Store)

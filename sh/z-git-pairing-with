@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+git config --global user.name "$1 & Marcelo Manzan"
+git config --global user.email "dev.team@abril.com.br"

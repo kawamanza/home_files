@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -d /tmp/mongodb ]; then
+  echo "Cleaning old database"
+  rm -rf /tmp/mongodb
+fi
+echo "Creating database folder"
+mkdir -p /tmp/mongodb/data
+
+mongod --dbpath /tmp/mongodb/data
