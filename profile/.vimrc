@@ -19,14 +19,16 @@ nmap <Leader>p :NERDTreeToggle<CR>
 "Ações de Tabs
 nnoremap <C-Tab> :tabNext<CR>
 
-"Control-A seleciona tudo
+"Control-A - select all
 nnoremap <C-A> ggVG
 
-"Control-C/Control-V - copia e cola usando o clipboard
+"Control-C - copy selected
 vmap <C-C> "+y
-nnoremap <C-V> "+gP
-vmap <C-V> "+gP
+"Control-V - paste clipboard
+nnoremap <C-V> "+gp
+vmap <C-V> "+gp
 
+"Shift-Tab - paste TAB
 inoremap <S-Tab> <C-V><Tab>
 
 "Moving lines Up/Down
