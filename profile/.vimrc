@@ -27,7 +27,9 @@ nnoremap <C-A> ggVG
 vmap <C-C> "+y
 "Control-V - paste clipboard
 nnoremap <C-V> "+gp
+nnoremap <C-S-V> "+gP
 vmap <C-V> "+gp
+vmap <C-S-V> "+gP
 
 "Shift-Tab - paste TAB
 inoremap <S-Tab> <C-V><Tab>
