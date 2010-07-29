@@ -5,6 +5,7 @@ autocmd BufNewFile,BufRead *.yml.sample setlocal filetype=yaml
 let mapleader=","
 set guifont=Monaco:h14
 if has("gui_running")
+  colorscheme railscasts
   set columns=135
 endif
 
