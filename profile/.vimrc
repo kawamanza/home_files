@@ -11,7 +11,7 @@ endif
 set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
-nnoremap <Leader>e :BufExplorer<CR>
+nnoremap <Leader>b :BufExplorer<CR>
 "Fechar o buffer (bufkill.vim)
 nmap <Leader>q :BW<CR>
 nmap <Leader>p :NERDTreeToggle<CR>
