@@ -2,9 +2,9 @@
 
 if [ -e $HOME/.rvm/bin/rvm ]; then
   function rvm_gem_set {
-    GEM_SET="$(echo $GEM_PATH | awk -F'%' '{print $2}')"
+    GEM_SET="$(echo $GEM_PATH | awk -F'@' '{print $2}')"
     if [[ ! -z "$GEM_SET" ]]; then
-      echo " ${GEM_SET}"
+      echo "@${GEM_SET}"
     fi
   }
 
