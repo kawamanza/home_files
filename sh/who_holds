@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "" ]; then
+  echo "missing port number"
+else
+  lsof -w -n -i tcp:$1
+fi
