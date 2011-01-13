@@ -3,18 +3,18 @@
 for project in `ls`
 do
   if [ -e $project/Rakefile ]; then
-    if [ -d $project/log ]; then
-      rm $project/log
-    fi
-    if [ -d $project/log ]; then
-      rm -rf $project/log
-    fi
     if [ -d /tmp/$project ]; then
       echo "removing /tmp/$project"
       rm -rf /tmp/$project
     fi
     echo "creating /tmp/$project/log"
     mkdir -p /tmp/$project/log
+    if [ -e $project/log ]; then
+      rm $project/log
+    fi
+    if [ -d $project/log ]; then
+      rm -rf $project/log
+    fi
     ln -s /tmp/$project/log $project/log
   fi
 done
