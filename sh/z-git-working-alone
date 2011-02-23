@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-git config --global user.name "Marcelo Manzan"
-git config --global user.email "marmanzan@abril.com.br"
+git config user.name "Marcelo Manzan"
+git config --unset user.name
