@@ -2,6 +2,9 @@
 
 if [ -e /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
+  export GIT_PS1_SHOWDIRTYSTATE=true # '*' for unstaged changes, '+' for staged
+  export GIT_PS1_SHOWSTASHSTATE=true # '$' if smth is stashed
+  #export GIT_PS1_SHOWUNTRACKEDFILES=true # '%' if un-tracked files
   function git_another_author {
     GIT_AUTHOR_NAME=`git config --get user.name`
     GLOBAL_GIT_AUTHOR_NAME=`git config --global --get user.name`
