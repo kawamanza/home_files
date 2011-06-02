@@ -1,20 +1,15 @@
 #!/usr/bin/env bash
 
-for project in `ls`
+for project in */log
 do
-  if [ -e $project/Rakefile ]; then
-    if [ -d /tmp/$project ]; then
-      echo "removing /tmp/$project"
-      rm -rf /tmp/$project
-    fi
-    echo "creating /tmp/$project/log"
-    mkdir -p /tmp/$project/log
-    if [ -e $project/log ]; then
-      rm $project/log
-    fi
-    if [ -d $project/log ]; then
-      rm -rf $project/log
-    fi
-    ln -s /tmp/$project/log $project/log
+  if [ ! -e $project ]; then
+    rm $project
+  else
+    rm -rf $project
   fi
+  echo "creating /tmp/$project"
+  if [ ! -d /tmp/$project ]; then
+    mkdir -p /tmp/$project
+  fi
+  ln -s /tmp/$project $project
 done
