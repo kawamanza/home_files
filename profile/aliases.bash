@@ -16,7 +16,7 @@ make_alias(){
       if [ "$sentence" != "(" ]; then
         sentence="$sentence &&"
       fi
-      local_sentence=`echo $1 | sed -e 's/"/\\\\"/g'`
+      local_sentence=`echo $1 | sed -e 's/\\\\/\\\\\\\\\\\\\\\\/g' | sed -e 's/"/\\\\"/g'`
       sentence="$sentence echo -e \"\033[0;36m${local_sentence}\033[0m\" && $1"
     fi
     shift
