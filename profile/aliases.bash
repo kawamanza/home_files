@@ -42,7 +42,7 @@ alias glrh="gl && r && gh"
 make_alias psg 1 "ps -aef | grep --color \$@"
 
 # netstat
-make_alias connmonitor 1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' 2 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep $2; done'
+make_alias netmonitor 1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' 2 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep $2; done'
 
 if [ -e ~/profile/private_aliases.bash ]; then
   . ~/profile/private_aliases.bash
