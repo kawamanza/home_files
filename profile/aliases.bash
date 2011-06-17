@@ -16,7 +16,7 @@ make_alias(){
       if [ "$sentence" != "(" ]; then
         sentence="$sentence &&"
       fi
-      local_sentence=`echo $1 | sed -e 's/\\\\/\\\\\\\\\\\\\\\\/g' | sed -e 's/"/\\\\"/g'`
+      local_sentence=`echo $1 | sed -e 's/\\\\/\\\\\\\\\\\\\\\\/g' | sed -e 's/"/\\\\"/g' | sed -e 's/$\\([^0-9]\\)/\\\\$\1/g'`
       sentence="$sentence echo -e \"\033[0;36m${local_sentence}\033[0m\" && $1"
     fi
     shift
@@ -37,12 +37,16 @@ alias r="echo_run rake"
 alias gl="echo_run git pull --rebase"
 alias gh="echo_run git push"
 alias glrh="gl && r && gh"
+make_alias fetch-all-git-projects \
+  0 'for dir in */.git; do if [ "$dir" != "*/.git" ]; then echo $dir; cd $dir/..; git fetch; cd ..; fi; done'
 
 # ps
 make_alias psg 1 "ps -aef | grep --color \$@"
 
 # netstat
-make_alias netmonitor 1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' 2 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep $2; done'
+make_alias netmonitor \
+  1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' \
+  2 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep $2; done'
 
 if [ -e ~/profile/private_aliases.bash ]; then
   . ~/profile/private_aliases.bash
