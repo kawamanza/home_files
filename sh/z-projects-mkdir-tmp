@@ -2,6 +2,10 @@
 
 for project in */log
 do
+  if [ "$project" == "*/log" ]; then
+    echo "Nothing to do"
+    break
+  fi
   if [ ! -e $project ]; then
     rm $project
   else
