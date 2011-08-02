@@ -43,6 +43,14 @@ make_alias fetch-all-git-projects \
 # ps
 make_alias psg 1 "ps -aef | grep --color \$@"
 
+# grep
+make_alias g \
+  1 'grep -rns "$1" *' \
+  2 'find . -name $2 | xargs grep -ns "$1"'
+make_alias gi \
+  1 'grep -rins "$1" *' \
+  2 'find . -name $2 | xargs grep -ins "$1"'
+
 # netstat
 make_alias netmonitor \
   1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' \
