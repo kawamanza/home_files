@@ -33,5 +33,6 @@ inoremap <D-A-Up> <Esc>:m-2<CR>==gi
 vnoremap <D-A-Down> :m'>+<CR>gv=gv
 vnoremap <D-A-Up> :m-2<CR>gv=gv
 
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=darkred
 highlight OverLength ctermbg=darkred guibg=#7E2217
 match OverLength /\%81v.\+/
