@@ -16,7 +16,7 @@ make_alias(){
       if [ "$sentence" != "(" ]; then
         sentence="$sentence &&"
       fi
-      local_sentence=`echo $1 | sed -e 's/\\\\/\\\\\\\\\\\\\\\\/g' | sed -e 's/"/\\\\"/g' | sed -e 's/$\\([^0-9]\\)/\\\\$\1/g'`
+      local_sentence=`echo $1 | sed -e 's/\\\\/\\\\\\\\\\\\\\\\/g' | sed -e 's/"/\\\\"/g' | sed -e 's/$\\([^0-9@#]\\)/\\\\$\1/g'`
       sentence="$sentence echo -e \"\033[0;36m${local_sentence}\033[0m\" && $1"
     fi
     shift
@@ -37,6 +37,9 @@ alias r="echo_run rake"
 alias gl="echo_run git pull --rebase"
 alias gh="echo_run git push"
 alias glrh="gl && r && gh"
+make_alias gne \
+  1 'git fetch' 'git notes --ref=$1 show HEAD' 'git notes --ref=$1 edit HEAD' 'git push origin refs/notes/$1' \
+  2 'git fetch' 'git notes --ref=$1 show $2' 'git notes --ref=$1 edit $2' 'git push origin refs/notes/$1'
 make_alias fetch-all-git-projects \
   0 'for dir in */.git; do if [ "$dir" != "*/.git" ]; then echo $dir; cd $dir/..; git fetch; cd ..; fi; done'
 
