@@ -3,8 +3,10 @@
 if [ -e $HOME/.rvm/bin/rvm ]; then
   function rvm_gem_set {
     GEM_SET=`rvm gemset name`
-    if [[ ! -z "$GEM_SET" ]]; then
-      echo "@${GEM_SET}"
+    if [[ -n "$GEM_SET" ]]; then
+      if [[ "$GEM_SET" != */* ]]; then
+        echo "@${GEM_SET}"
+      fi
     fi
   }
 
