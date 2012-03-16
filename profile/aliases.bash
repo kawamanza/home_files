@@ -59,6 +59,10 @@ make_alias netmonitor \
   1 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep 1; done' \
   2 'while [ 1 ]; do netstat -an | egrep ":$1" | grep EST | wc -l; sleep $2; done'
 
+# misc
+make_alias add_ssh_key \
+    1 'cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> ~/.ssh/authorized_keys"'
+
 if [ -e ~/profile/private_aliases.bash ]; then
   . ~/profile/private_aliases.bash
 fi
