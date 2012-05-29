@@ -31,7 +31,8 @@ make_alias(){
 alias ll='ls -lhFG'
 
 # rake
-alias r="echo_run bundle exec rake"
+alias b="echo_run bundle exec"
+alias r="b rake"
 
 # git
 alias gl="echo_run git pull --rebase"
